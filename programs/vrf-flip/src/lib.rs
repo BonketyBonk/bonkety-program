@@ -29,7 +29,7 @@ use num_derive::*;
 
 use solana_security_txt::security_txt;
 
-declare_id!("FLiPhaxG6sdasFpRoc17u1QKq96g2p2BTNNT1rqXvcnC");
+declare_id!("4TXz5v1tmgSXBWBVQfv67Fj6GwkL4vzw85M5hifPAE6M");
 
 const HOUSE_SEED: &[u8] = b"HOUSESTATESEED";
 const USER_SEED: &[u8] = b"USERSTATESEED";

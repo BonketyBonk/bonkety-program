@@ -1,9 +1,11 @@
 [features]
 seeds = false
 [programs.localnet]
-switchboard_vrf_flip = "FLiPhaxG6sdasFpRoc17u1QKq96g2p2BTNNT1rqXvcnC"
+switchboard_vrf_flip = "4TXz5v1tmgSXBWBVQfv67Fj6GwkL4vzw85M5hifPAE6M"
+[programs.devnet]
+switchboard_vrf_flip = "4TXz5v1tmgSXBWBVQfv67Fj6GwkL4vzw85M5hifPAE6M"
 [programs.mainnet]
-switchboard_vrf_flip = "FLiPhaxG6sdasFpRoc17u1QKq96g2p2BTNNT1rqXvcnC"
+switchboard_vrf_flip = "4TXz5v1tmgSXBWBVQfv67Fj6GwkL4vzw85M5hifPAE6M"
 
 [registry]
 url = "https://anchor.projectserum.com"

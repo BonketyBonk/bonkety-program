@@ -30,10 +30,11 @@ import {
   UserBetPlaced,
   UserBetSettled,
   UserState,
-} from "./client/index";
+} from "./client";
 import { IDL } from "./target/types/switchboard_vrf_flip";
-import { tokenAmountToBig } from "./client/utils";
-var Spinner = require("cli-spinner").Spinner;
+import { tokenAmountToBig } from "./client";
+
+const Spinner = require("cli-spinner").Spinner;
 
 const DEFAULT_MAINNET_RPC = "https://api.mainnet-beta.solana.com";
 const DEFAULT_DEVNET_RPC = "https://api.devnet.solana.com";
@@ -320,6 +321,7 @@ yargs(hideBin(process.argv))
       const newUserState = await Promise.race<UserState>([
         newUserStatePromise,
         new Promise((resolve) => {
+          shortCircuit: true
           // console.log(cliSpinners.bouncingBall);
         }),
       ]).finally(() => {
