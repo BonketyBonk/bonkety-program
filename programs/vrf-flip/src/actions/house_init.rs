@@ -1,7 +1,7 @@
 use crate::*;
 use anchor_spl::{
     associated_token::AssociatedToken,
-    token::{Mint, MintTo, Token, TokenAccount},
+    token::{Mint, Token, TokenAccount},
 };
 
 #[derive(Accounts)]
@@ -63,36 +63,21 @@ impl HouseInit<'_> {
         &self,
         _ctx: &Context<Self>,
         _params: &HouseInitParams,
-    ) -> anchor_lang::Result<()> {
+    ) -> Result<()> {
         Ok(())
     }
 
-    pub fn actuate(ctx: &Context<Self>, _params: &HouseInitParams) -> anchor_lang::Result<()> {
+    pub fn actuate(ctx: &Context<Self>, _params: &HouseInitParams) -> Result<()> {
         msg!("house_init");
 
         let house_bump = ctx.bumps.get("house").unwrap().clone();
-        let house_seeds: &[&[&[u8]]] = &[&[&HOUSE_SEED, &[house_bump]]];
-
-        msg!("minting 100_000_000 tokens to house vault");
-        token::mint_to(
-            CpiContext::new_with_signer(
-                ctx.accounts.token_program.to_account_info().clone(),
-                MintTo {
-                    mint: ctx.accounts.mint.to_account_info().clone(),
-                    authority: ctx.accounts.house.to_account_info().clone(),
-                    to: ctx.accounts.house_vault.to_account_info().clone(),
-                },
-                house_seeds,
-            ),
-            100_000_000_000_000_000,
-        )?;
 
         let house = &mut ctx.accounts.house.load_init()?;
 
         house.bump = house_bump;
         house.authority = ctx.accounts.authority.key().clone();
         house.switchboard_mint = ctx.accounts.switchboard_mint.key().clone();
-        house.mint = ctx.accounts.mint.key().clone();
+        house.mint = "bonkKjzREa7pVBRD6nFPAKRaHhS7XpDhhgZCZdGNkuU".parse().unwrap();
         house.switchboard_queue = ctx.accounts.switchboard_queue.key().clone();
         house.house_vault = ctx.accounts.house_vault.key().clone();
 
