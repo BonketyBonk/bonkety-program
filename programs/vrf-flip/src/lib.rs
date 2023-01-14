@@ -42,34 +42,26 @@ pub mod switchboard_vrf_flip {
 
     // house actions
     #[access_control(ctx.accounts.validate(&ctx, &params))]
-    pub fn house_init(ctx: Context<HouseInit>, params: HouseInitParams) -> anchor_lang::Result<()> {
+    pub fn house_init(ctx: Context<HouseInit>, params: HouseInitParams) -> Result<()> {
         HouseInit::actuate(&ctx, &params)
     }
 
     // user actions
     #[access_control(ctx.accounts.validate(&ctx, &params))]
-    pub fn user_init(ctx: Context<UserInit>, params: UserInitParams) -> anchor_lang::Result<()> {
+    pub fn user_init(ctx: Context<UserInit>, params: UserInitParams) -> Result<()> {
         UserInit::actuate(&ctx, &params)
     }
     #[access_control(ctx.accounts.validate(&ctx, &params))]
-    pub fn user_bet(ctx: Context<UserBet>, params: UserBetParams) -> anchor_lang::Result<()> {
+    pub fn user_bet(ctx: Context<UserBet>, params: UserBetParams) -> Result<()> {
         UserBet::actuate(ctx, &params)
     }
     #[access_control(ctx.accounts.validate(&ctx, &params))]
     pub fn user_settle(
         ctx: Context<UserSettle>,
         params: UserSettleParams,
-    ) -> anchor_lang::Result<()> {
+    ) -> Result<()> {
         UserSettle::actuate(&ctx, &params)
     }
-    #[access_control(ctx.accounts.validate(&ctx, &params))]
-    pub fn user_airdrop(
-        ctx: Context<UserAirdrop>,
-        params: UserAirdropParams,
-    ) -> anchor_lang::Result<()> {
-        UserAirdrop::actuate(&ctx, &params)
-    }
-}
 
 #[account(zero_copy)]
 #[derive(AnchorSerialize)]
