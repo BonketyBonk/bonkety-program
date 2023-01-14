@@ -62,7 +62,7 @@ impl UserSettle<'_> {
         &self,
         ctx: &Context<Self>,
         _params: &UserSettleParams,
-    ) -> anchor_lang::Result<()> {
+    ) -> Result<()> {
         let user = ctx.accounts.user.load()?;
         if user.current_round.status != RoundStatus::Awaiting {
             return Err(error!(VrfFlipError::CurrentRoundAlreadyClosed));
@@ -70,7 +70,7 @@ impl UserSettle<'_> {
         Ok(())
     }
 
-    pub fn actuate(ctx: &Context<Self>, _params: &UserSettleParams) -> anchor_lang::Result<()> {
+    pub fn actuate(ctx: &Context<Self>, _params: &UserSettleParams) -> Result<()> {
         msg!("user_settle");
         let clock = Clock::get()?;
 

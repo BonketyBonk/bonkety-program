@@ -15,7 +15,7 @@ impl Round {
         false
     }
 
-    pub fn settle(&mut self, vrf_result: &[u32]) -> anchor_lang::Result<bool> {
+    pub fn settle(&mut self, vrf_result: &[u32]) -> Result<bool> {
         let clock = Clock::get().unwrap();
 
         let result = vrf_result[0] % self.game_config.max + self.game_config.min;
@@ -28,7 +28,7 @@ impl Round {
         Ok(self.result == self.guess)
     }
 
-    pub fn payout_amount(&self) -> anchor_lang::Result<u64> {
+    pub fn payout_amount(&self) -> Result<u64> {
         if self.result == 0 {
             return Err(error!(VrfFlipError::CurrentRoundStillActive));
         }

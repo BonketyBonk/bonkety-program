@@ -2,7 +2,7 @@ use crate::*;
 
 use anchor_spl::{
     associated_token::AssociatedToken,
-    token::{spl_token::instruction::AuthorityType, Mint, MintTo, Token, TokenAccount},
+    token::{spl_token::instruction::AuthorityType, Mint, Token, TokenAccount},
 };
 
 #[derive(Accounts)]
@@ -28,8 +28,6 @@ pub struct UserInit<'info> {
     pub house: AccountLoader<'info, HouseState>,
     #[account(
         mut,
-        mint::decimals = 9,
-        mint::authority = house,
         mint::freeze_authority = house,
     )]
     pub mint: Account<'info, Mint>,
@@ -82,7 +80,7 @@ impl UserInit<'_> {
         &self,
         ctx: &Context<Self>,
         _params: &UserInitParams,
-    ) -> anchor_lang::Result<()> {
+    ) -> Result<()> {
         let vrf = ctx.accounts.vrf.load()?;
         if vrf.counter != 0 {
             return Err(error!(VrfFlipError::InvalidInitialVrfCounter));
@@ -93,7 +91,7 @@ impl UserInit<'_> {
         Ok(())
     }
 
-    pub fn actuate(ctx: &Context<Self>, params: &UserInitParams) -> anchor_lang::Result<()> {
+    pub fn actuate(ctx: &Context<Self>, params: &UserInitParams) -> Result<()> {
         msg!("user_init");
 
         let user = &mut ctx.accounts.user.load_init()?;
@@ -156,20 +154,6 @@ impl UserInit<'_> {
             ),
             AuthorityType::CloseAccount,
             None,
-        )?;
-
-        msg!("minting 10 tokens to users token wallet");
-        token::mint_to(
-            CpiContext::new_with_signer(
-                ctx.accounts.token_program.to_account_info().clone(),
-                MintTo {
-                    mint: ctx.accounts.mint.to_account_info().clone(),
-                    authority: ctx.accounts.house.to_account_info().clone(),
-                    to: ctx.accounts.reward_address.to_account_info().clone(),
-                },
-                house_seeds,
-            ),
-            10 * 1_000_000_000,
         )?;
 
         Ok(())

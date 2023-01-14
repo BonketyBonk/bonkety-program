@@ -51,7 +51,7 @@ impl UserState {
         std::mem::size_of::<UserState>() + 8
     }
 
-    pub fn request_randomness(ctx: &RequestRandomness) -> anchor_lang::Result<()> {
+    pub fn request_randomness(ctx: &RequestRandomness) -> Result<()> {
         let vrf_request_randomness = VrfRequestRandomness {
             authority: ctx.accounts.user.clone(),
             vrf: ctx.accounts.vrf.clone(),
@@ -102,7 +102,7 @@ impl UserState {
 
         // set new round
         self.current_round = Round {
-            game_type: game_type,
+            game_type,
             status: RoundStatus::Awaiting,
             game_config: game_type.get_game_config()?,
             guess,

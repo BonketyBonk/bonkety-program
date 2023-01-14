@@ -7,7 +7,7 @@ pub fn transfer<'a>(
     authority: &AccountInfo<'a>,
     auth_seed: &[&[&[u8]]],
     amount: u64,
-) -> anchor_lang::Result<()> {
+) -> Result<()> {
     let cpi_program = token_program.clone();
     let cpi_accounts = Transfer {
         from: from.to_account_info(),

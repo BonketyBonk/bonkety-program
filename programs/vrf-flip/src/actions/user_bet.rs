@@ -126,7 +126,7 @@ pub struct UserBetParams {
 }
 
 impl UserBet<'_> {
-    pub fn validate(&self, ctx: &Context<Self>, params: &UserBetParams) -> anchor_lang::Result<()> {
+    pub fn validate(&self, ctx: &Context<Self>, params: &UserBetParams) -> Result<()> {
         let user = ctx.accounts.user.load()?;
         let clock = Clock::get()?;
 
@@ -180,7 +180,7 @@ impl UserBet<'_> {
         Ok(())
     }
 
-    pub fn actuate(ctx: Context<Self>, params: &UserBetParams) -> anchor_lang::Result<()> {
+    pub fn actuate(ctx: Context<Self>, params: &UserBetParams) -> Result<()> {
         msg!("user_flip");
         let clock = Clock::get()?;
 

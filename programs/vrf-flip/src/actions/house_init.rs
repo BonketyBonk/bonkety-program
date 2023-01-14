@@ -30,7 +30,7 @@ pub struct HouseInit<'info> {
     #[account(
         init,
         payer = payer,
-        mint::decimals = 9,
+        mint::decimals = 5,
         mint::authority = house,
         mint::freeze_authority = house,
     )]

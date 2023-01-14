@@ -143,6 +143,7 @@ pub struct Round {
     pub settle_slot: u64,
     pub settle_timestamp: i64,
 }
+
 unsafe impl Pod for Round {}
 unsafe impl Zeroable for Round {}
 
@@ -165,6 +166,7 @@ impl Default for History {
         }
     }
 }
+
 unsafe impl Pod for History {}
 unsafe impl Zeroable for History {}
 
