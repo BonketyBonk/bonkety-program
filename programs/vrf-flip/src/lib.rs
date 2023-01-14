@@ -94,9 +94,9 @@ pub struct HouseState {
 )]
 pub enum GameType {
     None,
-    CoinFlip,
-    SixSidedDiceRoll,
-    TwentySidedDiceRoll,
+    SBFBonk,
+    DoKwonBonk,
+    CarolineEllisonBonk,
 }
 
 #[repr(packed)]
