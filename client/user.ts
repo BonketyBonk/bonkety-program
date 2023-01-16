@@ -707,7 +707,7 @@ export class User {
           if (!this.publicKey.equals(event.user)) {
             return;
           }
-          const gameType = GameTypeValue.COIN_FLIP;
+          const gameType = GameTypeValue.SBFBonk;
           await betPlaced({
             ...event,
             gameType: convertGameType(event.gameType),

@@ -26,71 +26,71 @@ export class None {
   }
 }
 
-export interface CoinFlipJSON {
-  kind: "CoinFlip"
+export interface SBFBonkJSON {
+  kind: "SBFBonk"
 }
 
-export class CoinFlip {
+export class SBFBonk {
   static readonly discriminator = 1
-  static readonly kind = "CoinFlip"
+  static readonly kind = "SBFBonk"
   readonly discriminator = 1
-  readonly kind = "CoinFlip"
+  readonly kind = "SBFBonk"
 
-  toJSON(): CoinFlipJSON {
+  toJSON(): SBFBonkJSON {
     return {
-      kind: "CoinFlip",
+      kind: "SBFBonk",
     }
   }
 
   toEncodable() {
     return {
-      CoinFlip: {},
+      SBFBonk: {},
     }
   }
 }
 
-export interface SixSidedDiceRollJSON {
-  kind: "SixSidedDiceRoll"
+export interface DoKwonBonkJSON {
+  kind: "DoKwonBonk"
 }
 
-export class SixSidedDiceRoll {
+export class DoKwonBonk {
   static readonly discriminator = 2
-  static readonly kind = "SixSidedDiceRoll"
+  static readonly kind = "DoKwonBonk"
   readonly discriminator = 2
-  readonly kind = "SixSidedDiceRoll"
+  readonly kind = "DoKwonBonk"
 
-  toJSON(): SixSidedDiceRollJSON {
+  toJSON(): DoKwonBonkJSON {
     return {
-      kind: "SixSidedDiceRoll",
+      kind: "DoKwonBonk",
     }
   }
 
   toEncodable() {
     return {
-      SixSidedDiceRoll: {},
+      DoKwonBonk: {},
     }
   }
 }
 
-export interface TwentySidedDiceRollJSON {
-  kind: "TwentySidedDiceRoll"
+export interface CarolineEllisonBonkJSON {
+  kind: "CarolineEllisonBonk"
 }
 
-export class TwentySidedDiceRoll {
+export class CarolineEllisonBonk {
   static readonly discriminator = 3
-  static readonly kind = "TwentySidedDiceRoll"
+  static readonly kind = "CarolineEllisonBonk"
   readonly discriminator = 3
-  readonly kind = "TwentySidedDiceRoll"
+  readonly kind = "CarolineEllisonBonk"
 
-  toJSON(): TwentySidedDiceRollJSON {
+  toJSON(): CarolineEllisonBonkJSON {
     return {
-      kind: "TwentySidedDiceRoll",
+      kind: "CarolineEllisonBonk",
     }
   }
 
   toEncodable() {
     return {
-      TwentySidedDiceRoll: {},
+      CarolineEllisonBonk: {},
     }
   }
 }
@@ -104,14 +104,14 @@ export function fromDecoded(obj: any): types.GameTypeKind {
   if ("None" in obj) {
     return new None()
   }
-  if ("CoinFlip" in obj) {
-    return new CoinFlip()
+  if ("SBFBonk" in obj) {
+    return new SBFBonk()
   }
-  if ("SixSidedDiceRoll" in obj) {
-    return new SixSidedDiceRoll()
+  if ("DoKwonBonk" in obj) {
+    return new DoKwonBonk()
   }
-  if ("TwentySidedDiceRoll" in obj) {
-    return new TwentySidedDiceRoll()
+  if ("CarolineEllisonBonk" in obj) {
+    return new CarolineEllisonBonk()
   }
 
   throw new Error("Invalid enum object")
@@ -122,14 +122,14 @@ export function fromJSON(obj: types.GameTypeJSON): types.GameTypeKind {
     case "None": {
       return new None()
     }
-    case "CoinFlip": {
-      return new CoinFlip()
+    case "SBFBonk": {
+      return new SBFBonk()
     }
-    case "SixSidedDiceRoll": {
-      return new SixSidedDiceRoll()
+    case "DoKwonBonk": {
+      return new DoKwonBonk()
     }
-    case "TwentySidedDiceRoll": {
-      return new TwentySidedDiceRoll()
+    case "CarolineEllisonBonk": {
+      return new CarolineEllisonBonk()
     }
   }
 }
@@ -137,9 +137,9 @@ export function fromJSON(obj: types.GameTypeJSON): types.GameTypeKind {
 export function layout(property?: string) {
   const ret = borsh.rustEnum([
     borsh.struct([], "None"),
-    borsh.struct([], "CoinFlip"),
-    borsh.struct([], "SixSidedDiceRoll"),
-    borsh.struct([], "TwentySidedDiceRoll"),
+    borsh.struct([], "SBFBonk"),
+    borsh.struct([], "DoKwonBonk"),
+    borsh.struct([], "CarolineEllisonBonk"),
   ])
   if (property !== undefined) {
     return ret.replicate(property)

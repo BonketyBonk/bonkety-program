@@ -30,14 +30,14 @@ export { GameType }
 
 export type GameTypeKind =
   | GameType.None
-  | GameType.CoinFlip
-  | GameType.SixSidedDiceRoll
-  | GameType.TwentySidedDiceRoll
+  | GameType.SBFBonk
+  | GameType.DoKwonBonk
+  | GameType.CarolineEllisonBonk
 export type GameTypeJSON =
   | GameType.NoneJSON
-  | GameType.CoinFlipJSON
-  | GameType.SixSidedDiceRollJSON
-  | GameType.TwentySidedDiceRollJSON
+  | GameType.SBFBonkJSON
+  | GameType.DoKwonBonkJSON
+  | GameType.CarolineEllisonBonkJSON
 
 export { RoundStatus }
 

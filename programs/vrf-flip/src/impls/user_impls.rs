@@ -87,7 +87,7 @@ impl UserState {
         game_type: GameType,
         guess: u32,
         bet_amount: u64,
-    ) -> anchor_lang::Result<()> {
+    ) -> Result<()> {
         let clock = Clock::get()?;
 
         // push current round to history

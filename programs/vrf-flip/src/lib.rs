@@ -41,27 +41,30 @@ pub mod switchboard_vrf_flip {
     use super::*;
 
     // house actions
-    #[access_control(ctx.accounts.validate(&ctx, &params))]
-    pub fn house_init(ctx: Context<HouseInit>, params: HouseInitParams) -> Result<()> {
+    #[access_control(ctx.accounts.validate(& ctx, & params))]
+    pub fn house_init(ctx: Context<HouseInit>, params: HouseInitParams) -> anchor_lang::Result<()> {
         HouseInit::actuate(&ctx, &params)
     }
 
     // user actions
-    #[access_control(ctx.accounts.validate(&ctx, &params))]
+    #[access_control(ctx.accounts.validate(& ctx, & params))]
     pub fn user_init(ctx: Context<UserInit>, params: UserInitParams) -> Result<()> {
         UserInit::actuate(&ctx, &params)
     }
-    #[access_control(ctx.accounts.validate(&ctx, &params))]
+
+    #[access_control(ctx.accounts.validate(& ctx, & params))]
     pub fn user_bet(ctx: Context<UserBet>, params: UserBetParams) -> Result<()> {
         UserBet::actuate(ctx, &params)
     }
-    #[access_control(ctx.accounts.validate(&ctx, &params))]
+
+    #[access_control(ctx.accounts.validate(& ctx, & params))]
     pub fn user_settle(
         ctx: Context<UserSettle>,
         params: UserSettleParams,
     ) -> Result<()> {
         UserSettle::actuate(&ctx, &params)
     }
+}
 
 #[account(zero_copy)]
 #[derive(AnchorSerialize)]

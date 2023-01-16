@@ -221,36 +221,21 @@ yargs(hideBin(process.argv))
       const userGuess = Math.floor(guess as number);
       let gameTypeEnum: GameTypeValue;
       switch (gameType) {
-        case "coin-flip": {
-          if (userGuess < 1 || userGuess > 2) {
-            throw new Error(
-              `Coin flip must be between 1 and 2, received ${userGuess}`
-            );
-          }
-          gameTypeEnum = GameTypeValue.COIN_FLIP;
+        case "sbfBonk": {
+          gameTypeEnum = GameTypeValue.SBFBonk;
           break;
         }
-        case "dice-roll": {
-          if (userGuess < 1 || userGuess > 6) {
-            throw new Error(
-              `Dice roll must be between 1 and 6, received ${userGuess}`
-            );
-          }
-          gameTypeEnum = GameTypeValue.SIX_SIDED_DICE_ROLL;
+        case "doKwonBonk": {
+          gameTypeEnum = GameTypeValue.DoKwonBonk;
           break;
         }
-        case "roll-20-sided-dice": {
-          if (userGuess < 1 || userGuess > 20) {
-            throw new Error(
-              `20 sided dice roll must be between 1 and 20, received ${userGuess}`
-            );
-          }
-          gameTypeEnum = GameTypeValue.TWENTY_SIDED_DICE_ROLL;
+        case "carolineEllisonBonk": {
+          gameTypeEnum = GameTypeValue.CarolineEllisonBonk;
           break;
         }
         default: {
           throw new Error(
-            `gameType must be 'coin-flip', 'dice-roll', or '20-sided-dice-roll', received ${gameType}`
+            `gameType must be 'sbfBonk', 'doKwonBonk', or 'carolineEllisonBonk', received ${gameType}`
           );
         }
       }

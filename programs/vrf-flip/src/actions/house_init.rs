@@ -2,7 +2,17 @@ use crate::*;
 use anchor_spl::{
     associated_token::AssociatedToken,
     token::{Mint, Token, TokenAccount},
+
 };
+use anchor_lang::solana_program::declare_id;
+
+
+pub use bonk_token::ID as BONK_TOKEN;
+mod bonk_token {
+    use super::*;
+    declare_id!("bonkKjzREa7pVBRD6nFPAKRaHhS7XpDhhgZCZdGNkuU");
+}
+
 
 #[derive(Accounts)]
 #[instruction(params: HouseInitParams)] // rpc parameters hint
@@ -27,13 +37,7 @@ pub struct HouseInit<'info> {
     )]
     pub switchboard_queue: AccountLoader<'info, OracleQueueAccountData>,
 
-    #[account(
-        init,
-        payer = payer,
-        mint::decimals = 5,
-        mint::authority = house,
-        mint::freeze_authority = house,
-    )]
+    #[account(address = BONK_TOKEN)]
     pub mint: Account<'info, Mint>,
     #[account(
         init,
@@ -73,6 +77,7 @@ impl HouseInit<'_> {
         let house_bump = ctx.bumps.get("house").unwrap().clone();
 
         let house = &mut ctx.accounts.house.load_init()?;
+
 
         house.bump = house_bump;
         house.authority = ctx.accounts.authority.key().clone();

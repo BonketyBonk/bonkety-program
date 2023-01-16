@@ -41,7 +41,6 @@ pub struct UserBet<'info> {
         mut,
         token::mint = house.load()?.mint,
         token::authority = house,
-            
     )]
     pub escrow: Box<Account<'info, TokenAccount>>,
 
