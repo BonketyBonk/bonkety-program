@@ -1,0 +1,10 @@
+/Users/rhenquadros/Development/bonkety-program/target/release/deps/proc_macro2_diagnostics-2d53f032b035764d.rmeta: /Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/lib.rs /Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/ext.rs /Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/diagnostic.rs /Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/line.rs
+
+/Users/rhenquadros/Development/bonkety-program/target/release/deps/libproc_macro2_diagnostics-2d53f032b035764d.rlib: /Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/lib.rs /Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/ext.rs /Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/diagnostic.rs /Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/line.rs
+
+/Users/rhenquadros/Development/bonkety-program/target/release/deps/proc_macro2_diagnostics-2d53f032b035764d.d: /Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/lib.rs /Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/ext.rs /Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/diagnostic.rs /Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/line.rs
+
+/Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/lib.rs:
+/Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/ext.rs:
+/Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/diagnostic.rs:
+/Users/rhenquadros/.cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-diagnostics-0.9.1/src/line.rs:
