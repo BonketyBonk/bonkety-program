@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "types": ["mocha", "chai", "node"],
+    "typeRoots": ["./node_modules/@types"],
+    "lib": ["es2019", "dom"],
+    "module": "commonjs",
+    "target": "ES2021",
+    "esModuleInterop": true,
+    "paths": {
+      "@solana/spl-token": ["./node_modules/@solana/spl-token"],
+      "@switchboard-xyz/switchboard-v2": [
+        "./node_modules/@switchboard-xyz/switchboard-v2"
+      ],
+      "@project-serum/anchor": ["./node_modules/@project-serum/anchor"]
+    }
+  }
+}
