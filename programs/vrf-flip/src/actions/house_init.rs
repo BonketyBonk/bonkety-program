@@ -82,7 +82,7 @@ impl HouseInit<'_> {
         house.bump = house_bump;
         house.authority = ctx.accounts.authority.key().clone();
         house.switchboard_mint = ctx.accounts.switchboard_mint.key().clone();
-        house.mint = "bonkKjzREa7pVBRD6nFPAKRaHhS7XpDhhgZCZdGNkuU".parse().unwrap();
+        house.mint = ctx.accounts.mint.key().clone();
         house.switchboard_queue = ctx.accounts.switchboard_queue.key().clone();
         house.house_vault = ctx.accounts.house_vault.key().clone();
 
